@@ -1,0 +1,386 @@
+<!doctype html>
+
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Schlag den Kumpel</title>
+
+		<meta name="description" content="Erstellt mit RevealJS und gedacht zum Nachbasteln">
+		<meta name="author" content="gultimate3">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script>
+		var number = 0
+		</script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h1>Schlag den Kumpel</h1>
+					<p>
+						<small>Created by gultimate3</small>
+					</p>
+				</section>
+
+<section>
+	<h2>Spielvorbereitung</h2>
+<form>
+<input type="text" id="playername" placeholder="Name  Spieler"></input><br>
+<button id="insertButton" onclick="insert()">Hinzufügen</button>
+<button id="deleteButton" onclick="deletePlayer()">Löschen</button>
+</form>
+<form>
+<label for="playernames"> Spieler:  </label>
+<output type="text"id="playernames"></output>
+<br>
+<label for="playercount"> Anzahl:  </label>
+<output type="text"id="playercount"></output>
+</form>
+</section>
+
+<section>
+	<h2>Spielvorbereitung</h2>
+	<form>
+	<input type="text" id="gamename" placeholder="Name  Spiel"></input><br>
+	<button id="insertButton" onclick="insertGame()">Hinzufügen</button>
+	<button id="deleteButton" onclick="deleteGame()">Löschen</button>
+	</form>
+	<form>
+	<label for="gamenames"> Spiele:  </label>
+	<output type="text"id="gamenames"></output>
+	<br>
+	<label for="gamecount">Anzahl:  </label>
+	<output type="text"id="gamecount"</output>
+	</form>
+
+						<aside class="notes">
+						</aside>
+				</section>
+
+				<section>
+					<video data-autoplay src="./videos/sdk.mp4"></video>
+				</section>
+
+				<section id="punktestand">
+					<h2>Punktestand</h2>
+
+					<form>
+    		<input type="text" id="points1" name="points1" value="1" size="2">
+				<input type="text" id="points2" name="points2" value="2" size="2">
+				<input type="text" id="points3" name="points2" value="3" size="2">
+				<input type="text" id="points4" name="points2" value="4" size="2">
+				<input type="text" id="points5" name="points2" value="5" size="2">
+				<input type="text" id="points6" name="points2" value="6" size="2">
+				<input type="text" id="points7" name="points2" value="7" size="2">
+				<input type="text" id="points8" name="points2" value="8" size="2">
+				<input type="text" id="points9" name="points2" value="9" size="2">
+				<input type="text" id="points10" name="points2" value="10" size="2">
+				<input type="text" id="points11" name="points2" value="11" size="2">
+				<input type="text" id="points12" name="points2" value="12" size="2">
+				<input type="text" id="points13" name="points2" value="13" size="2">
+				<input type="text" id="points14" name="points2" value="14" size="2">
+				<input type="text" id="points15" name="points2" value="15" size="2">
+				</form>
+
+				<div class="box">
+					<p>Team 1<br>
+				<form id="spoints">
+					<output type="number" id="spointstotal">0</output></br>
+					<input type="text" id="spoints1" name="spoints" size="2" onclick="sgetvalue(1)">
+					<input type="text" id="spoints2" name="spoints" size="2" onclick="sgetvalue(2)">
+					<input type="text" id="spoints3" name="spoints" size="2" onclick="sgetvalue(3)">
+					<input type="text" id="spoints4" name="spoints" size="2" onclick="sgetvalue(4)">
+					<input type="text" id="spoints5" name="spoints" size="2" onclick="sgetvalue(5)"></br>
+					<input type="text" id="spoints6" name="spoints" size="2" onclick="sgetvalue(6)">
+					<input type="text" id="spoints7" name="spoints" size="2" onclick="sgetvalue(7)">
+					<input type="text" id="spoints8" name="spoints" size="2" onclick="sgetvalue(8)">
+					<input type="text" id="spoints9" name="spoints" size="2" onclick="sgetvalue(9)">
+					<input type="text" id="spoints10" name="spoints" size="2" onclick="sgetvalue(10)"></br>
+					<input type="text" id="spoints11" name="spoints" size="2" onclick="sgetvalue(11)">
+					<input type="text" id="spoints12" name="spoints" size="2" onclick="sgetvalue(12)">
+					<input type="text" id="spoints13" name="spoints" size="2" onclick="sgetvalue(13)">
+					<input type="text" id="spoints14" name="spoints" size="2" onclick="sgetvalue(14)">
+					<input type="text" id="spoints15" name="spoints" size="2" onclick="sgetvalue(15)">
+				</form>
+				</div>
+				<div class="box">
+					<p>Team 2<br>
+				<form id="tpoints">
+				<output type="number" id="tpointstotal">0</output></br>
+				<input type="text" id="tpoints1" name="tpoints" size="2" onclick="tgetvalue(1)">
+				<input type="text" id="tpoints2" name="tpoints" size="2" onclick="tgetvalue(2)">
+				<input type="text" id="tpoints3" name="tpoints" size="2" onclick="tgetvalue(3)">
+				<input type="text" id="tpoints4" name="tpoints" size="2" onclick="tgetvalue(4)">
+				<input type="text" id="tpoints5" name="tpoints" size="2" onclick="tgetvalue(5)"></br>
+				<input type="text" id="tpoints6" name="tpoints" size="2" onclick="tgetvalue(6)">
+				<input type="text" id="tpoints7" name="tpoints" size="2" onclick="tgetvalue(7)">
+				<input type="text" id="tpoints8" name="tpoints" size="2" onclick="tgetvalue(8)">
+				<input type="text" id="tpoints9" name="tpoints" size="2" onclick="tgetvalue(9)">
+				<input type="text" id="tpoints10" name="tpoints" size="2" onclick="tgetvalue(10)"></br>
+				<input type="text" id="tpoints11" name="tpoints" size="2" onclick="tgetvalue(11)">
+				<input type="text" id="tpoints12" name="tpoints" size="2" onclick="tgetvalue(12)">
+				<input type="text" id="tpoints13" name="tpoints" size="2" onclick="tgetvalue(13)">
+				<input type="text" id="tpoints14" name="tpoints" size="2" onclick="tgetvalue(14)">
+				<input type="text" id="tpoints15" name="tpoints" size="2" onclick="tgetvalue(15)">
+				</form>
+				</div>
+				</section>
+
+				<section>
+				<section>
+					<h1 id ="gamenumber">Spiel </h1>
+					<h2 id="nextgamename">...<h2>
+
+					<button id="nextgame" onclick="nextgame()">Next Game</button>
+				</section>
+
+				<section>
+					<h3>Wer tritt an?</h3>
+					<form class="form-horizontal" onsubmit='return false'>
+						<input type="text" id="numberplayers" name="numberplayers" placeholder="Anzahl Spieler"><br>
+						<button id="ok" onclick="getplayers()">OK</button><br></br>
+					</form>
+
+					<form>
+						<label for="team1"> Team 1: </label>
+						<output type="text" id="team1"></output></br>
+					</form>
+
+					</br>
+
+					<form>
+						<label for="team2"> Team 2: </label>
+						<output type="text" id="team2"></output></br>
+					</form>
+				</section>
+			</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+		<script>
+		document.getElementById("tpoints").addEventListener("click", tcalculate);
+		function tcalculate()
+		{
+			var tvalue = document.getElementsByName('tpoints');
+			var tresult = 0;
+			for(var i=0;i<tvalue.length;i++){
+        if(parseInt(tvalue[i].value))
+            tresult += parseInt(tvalue[i].value);
+    	}
+			document.getElementById('tpointstotal').value = tresult;
+		}
+		</script>
+
+		<script>
+		document.getElementById("spoints").addEventListener("click", scalculate);
+		function scalculate()
+		{
+			var svalue = document.getElementsByName('spoints');
+			var sresult = 0;
+			for(var i=0;i<svalue.length;i++){
+        if(parseInt(svalue[i].value))
+            sresult += parseInt(svalue[i].value);
+    	}
+			document.getElementById('spointstotal').value = sresult;
+		}
+		</script>
+
+		<script>
+		function tgetvalue(x)
+		{
+			var string1 = "points";
+			var string2 = x;
+			var searchstring = string1.concat(string2);
+			var string3 = "tpoints";
+			var tpoints = string3.concat(x);
+			var points = document.getElementById(searchstring).value;
+			document.getElementById(tpoints).value = points;
+			document.getElementById(searchstring).value = "";
+		}
+		</script>
+
+		<script>
+		function sgetvalue(x)
+		{
+			var string1 = "points";
+			var string2 = x;
+			var searchstring = string1.concat(string2);
+			var string3 = "spoints";
+			var spoints = string3.concat(x);
+			var points = document.getElementById(searchstring).value;
+			document.getElementById(spoints).value = points;
+			document.getElementById(searchstring).value = "";
+		}
+		</script>
+
+		<script>
+		function nextgame()
+		{
+		var name = "Spiel ";
+		if (number < 15) {
+			number = number+1;
+		}
+		if (number == 15) {
+		document.getElementById("nextgame").disabled = true;
+		}
+		var nextgame = name.concat(number);
+		document.getElementById("gamenumber").innerHTML = nextgame;
+
+		var game = games[games.length * Math.random() | 0];
+		var pos = games.indexOf(game);
+		games.splice(pos, 1);
+		document.getElementById("nextgamename").innerHTML = game;
+		}
+		</script>
+
+		<script>
+		function	getplayers()
+		{
+			var number = document.getElementById("numberplayers").value;
+			var playersteam1 = [];
+			var playersteam2 = [];
+			var playernames = [...players];
+			for (var i = 1; i <= number; i++) {
+				var player = playernames[Math.floor(Math.random()*playernames.length)];
+				var pos = playernames.indexOf(player);
+				playernames.splice(pos, 1);
+				var evenorodd = oddOrEven(i);
+				if (evenorodd == "odd") {
+					playersteam1.push(player);
+				} else{
+					playersteam2.push(player);
+				}
+			}
+			var x = document.getElementById("team1");
+			x.innerHTML = playersteam1.join(", ");
+			var y = document.getElementById("team2");
+			y.innerHTML = playersteam2.join(", ");
+		}
+		</script>
+
+		<script>
+		/*document.getElementById("playersform").addEventListener('submit', function(e) {
+    search(document.getElementById("numberplayers"));
+    e.preventDefault();
+	}, false);*/
+		</script>
+
+		<script>
+		function oddOrEven(x)
+		{
+  		return ( x & 1 ) ? "odd" : "even";
+		}
+		</script>
+
+		<script>
+		var players = new Array();
+
+		function insert(){
+			var player = document.getElementById("playername").value;
+			if (player !== "") {
+				players.push(player);
+			}
+			var x = document.getElementById("playernames");
+			x.innerHTML = players.join(", ");
+			document.getElementById("playername").value="";
+
+			var count = (players.length);
+			if(count > 0){
+				document.getElementById("playercount").value = count;
+			}
+		}
+
+		function deletePlayer() {
+			players.pop();
+			document.getElementById("playernames").innerHTML = players;
+
+			var count = (players.length);
+			if(count > 0){
+				document.getElementById("playercount").value = count;
+			}
+		}
+		</script>
+
+		<script>
+		var games = new Array();
+
+		function insertGame(){
+			var game = document.getElementById("gamename").value;
+			if (game !== "") {
+				games.push(game);
+			}
+			var x = document.getElementById("gamenames");
+			x.innerHTML = games.join(", ");
+			document.getElementById("gamename").value="";
+
+			var count = (games.length);
+			if(count > 0){
+				document.getElementById("gamecount").value = count;
+			}
+		}
+
+		function deleteGame() {
+			games.pop();
+			document.getElementById("gamenames").innerHTML = games;
+
+			var count = (games.length);
+			if(count > 0){
+				document.getElementById("gamecount").value = count;
+			}
+		}
+		</script>
+
+	</body>
+</html>
